@@ -1,6 +1,6 @@
 import { Router, RouteRecordRaw } from "vue-router";
 
 declare module "vue-router" {
-  const router: Router; // Change this to the actual type of your router
+  const router: Router;
   export { router, RouteRecordRaw };
 }

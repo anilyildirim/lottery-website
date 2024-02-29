@@ -7,8 +7,7 @@ const router = createRouter({
   routes: [
     { path: "/", component: WelcomePage },
     { path: "/ResultsPage", component: ResultsPage },
-    // Add other routes as needed
   ],
 });
 
-export default router; // Add this line to export the 'router' instance
+export default router;
