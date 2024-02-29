@@ -1,5 +1,5 @@
 <template>
-  <ul v-if="draw && draw.length">
+  <ul v-if="draw && draw.date">
     <li>
       <h3>Draw Date:</h3>
       <time>{{ draw.date }}</time>
@@ -21,10 +21,11 @@
       </p>
     </li>
   </ul>
-  <p class="warning" v-else>There are no available draws!</p>
 </template>
 
 <script lang="ts">
+import { PropType } from "vue";
+
 export interface Draw {
   date: string;
   jackpot: number;
@@ -34,37 +35,12 @@ export interface Draw {
 export default {
   name: "ResultsListItem",
   props: {
-    draw: Object,
+    draw: Object as PropType<Draw>,
   },
 };
 </script>
 
 <style scoped lang="scss">
-h3 {
-  font-size: 0.9rem;
-  margin-block: 0 0.25rem;
-
-  @media only screen and (min-width: 600px) {
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-p,
-time {
-  display: inline-block;
-  font-size: 0.8rem;
-  margin-block: 0;
-
-  @media only screen and (min-width: 600px) {
-    font-size: 0.9rem;
-  }
-}
-
-p.warning {
-  color: #ff0000;
-}
-
 ul {
   list-style: none;
   max-width: 15rem;
@@ -88,6 +64,27 @@ li:not(:last-child) {
 
   @media only screen and (min-width: 600px) {
     margin-bottom: 0;
+  }
+}
+
+h3 {
+  font-size: 0.9rem;
+  margin-block: 0 0.25rem;
+
+  @media only screen and (min-width: 600px) {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+p,
+time {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-block: 0;
+
+  @media only screen and (min-width: 600px) {
+    font-size: 0.9rem;
   }
 }
 </style>

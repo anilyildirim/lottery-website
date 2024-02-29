@@ -5,7 +5,7 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       "/graphql": {
-        target: "http://localhost:8080", // Change to your local server address
+        target: "http://localhost:8080",
         changeOrigin: true,
       },
     },
