@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <img alt="company logo" src="../assets/logo.jpg" />
-    <h1>{{ msg }}</h1>
-    <p>Checkout the winners by clicking the button below:</p>
-    <router-link to="/ResultsPage">
-      <button>Lottery Page</button>
-    </router-link>
-  </div>
+  <img alt="company logo" src="../assets/logo.jpg" />
+  <h1>Welcome to our homepage!</h1>
+  <p>Checkout the winners by clicking the button below:</p>
+  <router-link to="/ResultsPage">
+    <button>Lottery Page</button>
+  </router-link>
 </template>
 
 <script lang="ts">
@@ -26,9 +24,9 @@ h3 {
   margin-top: 40px;
 }
 button {
-  border: 0px #42b983 solid;
+  border: none;
   background-color: #42b983;
-  color: white;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;

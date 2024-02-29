@@ -1,21 +1,15 @@
 <template>
-  <div>
-    <h1>Winning Lotteries</h1>
-    <ul>
-      <li v-for="draw in draws" :key="draw.date">
-        {{ draw.date }} - Jackpot: {{ draw.jackpot }} - Numbers:
-        {{ draw.numbers }}
-      </li>
-    </ul>
-  </div>
+  <h2>Winning Lotteries</h2>
+  <ResultsList :draws="draws" />
 </template>
 
 <script>
 import gql from "graphql-tag";
 import { apolloClient } from "@/services/apollo-client";
+import ResultsList from "../components/ResultsList";
 
 const GET_DRAWS = gql`
-  query GetDraws($date: String, $limit: Int, $type: String!) {
+  query getDraws($date: String, $limit: Int, $type: String!) {
     draw(date: $date, limit: $limit, type: $type) {
       draws {
         date
@@ -27,6 +21,9 @@ const GET_DRAWS = gql`
 `;
 
 export default {
+  components: {
+    ResultsList,
+  },
   data() {
     return {
       draws: [],
@@ -46,3 +43,13 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+h2 {
+  font-size: 1.5rem;
+
+  @media only screen and (min-width: 600px) {
+    font-size: 2rem;
+  }
+}
+</style>
