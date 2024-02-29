@@ -1,5 +1,4 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client/core";
-import { provide } from "vue";
 
 export function createApolloClient() {
   return new ApolloClient({
@@ -9,6 +8,3 @@ export function createApolloClient() {
 }
 
 export const apolloClient = createApolloClient();
-provide("apollo", apolloClient);
-
-// http://localhost:8010/proxy

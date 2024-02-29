@@ -11,9 +11,13 @@
 </template>
 
 <script lang="ts">
-import { PropType, ref } from "vue";
+import { PropType, ref, watch } from "vue";
 import ResultsListItem from "@/components/ResultsListItem.vue";
 import { Draw } from "@/components/ResultsListItem.vue";
+
+interface ResultsListProps {
+  draws: Draw[];
+}
 
 export default {
   name: "ResultsList",
@@ -23,13 +27,17 @@ export default {
   components: {
     ResultsListItem,
   },
-  setup() {
+  setup(props: ResultsListProps) {
     const loading = ref(true);
 
-    // Simulating asynchronous data fetching
-    setTimeout(() => {
-      loading.value = false;
-    }, 1000);
+    // Watch for changes in the draws prop
+    watch(
+      () => props.draws,
+      () => {
+        // Simulate loading completion when draws change
+        loading.value = false;
+      }
+    );
 
     return {
       loading,
