@@ -1,17 +1,25 @@
 <template>
-  <ul v-if="!loading && draws && draws.length" class="result-list">
+  <ul
+    v-if="!loading && draws && draws.length"
+    data-testid="result-list"
+    class="result-list"
+  >
     <li v-for="draw in draws" :key="draw.date">
-      <ResultsListItem :draw="draw" />
+      <ResultsListItem :draw="draw" data-testid="results-list-item" />
     </li>
   </ul>
-  <p class="warning" v-if="!loading && (!draws || draws.length === 0)">
+  <p
+    class="warning"
+    v-if="!loading && (!draws || draws.length === 0)"
+    data-testid="warning"
+  >
     There are no available draws!
   </p>
-  <p v-if="loading">Loading...</p>
+  <p v-if="loading" class="loading" data-testid="loading">Loading...</p>
 </template>
 
 <script lang="ts">
-import { PropType, ref, watch } from "vue";
+import { PropType, Ref, ref, watch } from "vue";
 import ResultsListItem from "@/components/ResultsListItem.vue";
 import { Draw } from "@/components/ResultsListItem.vue";
 
@@ -28,7 +36,7 @@ export default {
     ResultsListItem,
   },
   setup(props: ResultsListProps) {
-    const loading = ref(true);
+    const loading: Ref<boolean> = ref(true);
 
     // Watch for changes in the draws prop
     watch(

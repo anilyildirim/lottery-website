@@ -1,15 +1,15 @@
 <template>
   <ul v-if="draw && draw.date">
     <li>
-      <h3>Draw Date:</h3>
+      <h3 data-testid="results-list-item-date-title">Draw Date:</h3>
       <time>{{ draw.date }}</time>
     </li>
     <li>
-      <h3>Jackpot:</h3>
+      <h3 data-testid="results-list-item-type-title">Jackpot:</h3>
       <p>{{ draw.jackpot }} €</p>
     </li>
     <li>
-      <h3>Numbers:</h3>
+      <h3 data-testid="results-list-item-numbers-title">Numbers:</h3>
       <p>
         {{
           draw.numbers

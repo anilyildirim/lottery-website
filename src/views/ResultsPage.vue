@@ -1,5 +1,5 @@
 <template>
-  <h2>Winning Lotteries</h2>
+  <h2 data-testid="results-page-title">Winning Lotteries</h2>
   <ResultsList :draws="draws" />
 </template>
 

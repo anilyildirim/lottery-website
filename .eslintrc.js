@@ -9,6 +9,7 @@ module.exports = {
     "@vue/typescript/recommended",
     "plugin:prettier/recommended",
   ],
+  plugins: ["prettier"],
   parserOptions: {
     ecmaVersion: 2020,
   },

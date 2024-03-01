@@ -1,7 +1,9 @@
 <template>
   <img alt="company logo" src="../assets/logo.jpg" />
-  <h1>Welcome to our homepage!</h1>
-  <p>Checkout the winners by clicking the button below:</p>
+  <h1 data-testid="welcome-page-title">Welcome to our homepage!</h1>
+  <p data-testid="welcome-page-paragraph">
+    Checkout the winners by clicking the button below:
+  </p>
   <router-link to="/ResultsPage">
     <button>Lottery Page</button>
   </router-link>
