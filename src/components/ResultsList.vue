@@ -42,8 +42,15 @@ export default {
     watch(
       () => props.draws,
       () => {
-        // Simulate loading completion when draws change
-        loading.value = false;
+        // Check if draws is empty and simulate loading completion after a delay of 3 seconds
+        if (props.draws.length === 0) {
+          setTimeout(() => {
+            loading.value = false;
+          }, 5000);
+        } else {
+          // If draws is not empty, set loading to false immediately
+          loading.value = false;
+        }
       }
     );
 
